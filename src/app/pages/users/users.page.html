@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios (API DummyJSON)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="loading" style="display: flex; justify-content: center; margin-top: 30px;">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let user of users">
+      <ion-avatar slot="start" *ngIf="user.image">
+        <img [src]="user.image" [alt]="user.firstName" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
